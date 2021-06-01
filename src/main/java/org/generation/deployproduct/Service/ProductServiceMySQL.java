@@ -14,10 +14,10 @@ public class ProductServiceMySQL implements ProductService{
     public ProductServiceMySQL(@Autowired ProductRepository productRepository) {this.productRepository = productRepository;}
 
     @Override
-    public Product save(Product item) {return productRepository.save(product);}
+    public Product save(Product product) {return productRepository.save(product);}
 
     @Override
-    public void delete(int productId) {productRepository.deleteById(productId);}
+    public void delete(int product_code) {productRepository.deleteById(product_code);}
 
     @Override
     public List<Product> all() {
@@ -27,9 +27,9 @@ public class ProductServiceMySQL implements ProductService{
     }
 
     @Override
-    public Product findById(int itemId) {
+    public Product findById(int product_code) {
 
-        Optional<Product> item = productRepository.findById(itemId);
+        Optional<Product> item = productRepository.findById(product_code);
         Product productResponse = product.get();
         return productResponse;
     }

@@ -7,10 +7,10 @@ import java.util.List;
 public interface ProductService {
     Product save (Product product);
 
-    void delete (int productId);
+    void delete (int product_code);
 
     List<Product> all();
 
-    Product findById(int productId);
+    Product findById(int product_code);
 
 }
