@@ -40,7 +40,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return String.format("Product{Product_code='%d', name='%s', description='%s', image_url='%s', category='%s', price='%.2f'",
+        return String.format("Product!{Product_code='%d', name='%s', description='%s', image_url='%s', category='%s', price='%.2f'",
                 this.Product_code, this.name, this.description, this.image_url, this.category, this.price);
     }
 
