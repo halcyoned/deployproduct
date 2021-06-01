@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lily+Script+One&family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <!--local CSS-->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <div th:insert="fragments/navbar.html :: navbar"></div>
+
+    <!--This is the login form. Reference to lazada.com login form-->
+    <!--Top section of login page-->
+    <br>
+    <div class="container">
+        <div class="container">
+            <h4>Welcome to LLLC.</h4>
+            <br>
+            <p>Looks like you are ready for a great deal from us.</p>
+            <p>Please sign in.</p>
+        </div>
+        <br>
+        <!--Bottom section of login page-->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <form action="products.html" method="GET">
+                        <div>
+                            <label for="email">Your email address*</label>
+                        </div>
+                        <div>
+                            <input id="email" name="email" type="email" required>
+                        </div>
+                        <br>
+
+                        <div>
+                            <label for="password">Password*</label>
+                        </div>
+                        <div>
+                            <input id="password" name="password" type="password" min="8"
+                                aried-describedby="passwordHelpBlock" required data-bs-toggle="tooltip"
+                                data-bs-placement="bottom" title="at least 8 characters, no spaces">
+                        </div>
+                        <div id="passwordHelpBlock" class="form-text">
+                            A strong password secures your account.
+                        </div>
+                        <br>
+
+                        <input type="submit" button type="button" class="btn btn-primary btn-lg"></button>
+                        <br>
+                        <br>
+                        <br>
+                    </form>
+                </div>
+                <div class="col-md-6 m5">
+                    <div>
+                        <h6>New member?</h6>
+                        <a href="#">Register here.</a> <!-- to link to registration form-->
+                    </div>
+                    <br>
+                    <div>
+                        <button type="button" class="btn btn-outline-primary">Login with FaceBook</button>
+                    </div>
+                </div>
+                <br>
+
+
+
+                <!-- The JS SDK Login Button (cut-and-paste)-->
+                <!--<div class="fb-login-button" data-width="" data-size="medium" data-button-type="login_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="true">
+                </div>-->
+                <!-- or-->
+                <!--<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+                </fb:login-button>
+
+                <div id="status">
+                </div> -->
+            </div>
+
+        </div>
+    </div>
+
+    <div th:insert="fragments/footer.html :: footer"></div>
+
+
+    <script src=" https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

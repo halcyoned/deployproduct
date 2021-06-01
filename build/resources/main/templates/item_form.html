@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Form</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lily+Script+One&family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        section {
+            background-color: rgb(240, 240, 240);
+        }
+
+        @media (max-width: 576px) {
+            #formContainer {
+                width: 90%;
+            }
+        }
+
+        @media (min-width: 576px) {
+            #formContainer {
+                width: 75%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div th:insert="fragments/navbar.html :: navbar"></div>
+
+    <section class="container mb-4 border border-light rounded-lg" id="formContainer">
+        <h3 class="pt-5 mb-4 text-center font-weight-normal">Enter Product Details</h3>
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-9">
+                <form action="#" onsubmit="event.preventDefault(); submitForm();" id="item_form">
+                    <div class="form-group">
+                        <label for="item-code">Item code*</label>
+                        <input type="text" class="form-control" id="item-code" placeholder="Enter item code" required>
+                        <small id="itemCodeErrorMsg" class="form-text text-danger"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="item-name">Item name</label>
+                        <input type="text" class="form-control" id="item-name" placeholder="Enter item name (optional)">
+                        <small id="itemNameErrorMsg" class="form-text text-danger"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="item-category">Item category</label>
+                        <select class="custom-select" id="item-category" required>
+                            <option value="" selected disabled>---------- Please select one ----------</option>
+                            <option value="men">Men's</option>
+                            <option value="women">Women's</option>
+                            <option value="kids">Kids'</option>
+                        </select>
+                    </div>
+                    <span class="title">Select item colour and quantity*</span><br>
+                    <small id="checkboxErrorMsg" class="form-text text-danger"></small>
+                    <div class="form-checkbox row mt-2">
+                        <div class="col-sm">
+                            <div class="form-check">
+                                <input class=" form-check-input" type="checkbox" value="black" id="checkBlack">
+                                <label class="form-check-label" for="checkBlack">Black</label>
+                                <div class="form-group row mb-2">
+                                    <label for="qtyBlack"
+                                        class="col-3 col-form-label col-form-label-sm text-muted">Quantity:</label>
+                                    <div class="col-4">
+                                        <input type="number" class="form-control form-control-sm qty-input"
+                                            id="qtyBlack" min="1" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="blue" id="checkBlue">
+                                <label class="form-check-label" for="checkBlue">Blue</label>
+                                <div class="form-group row">
+                                    <label for="qtyBlue"
+                                        class="col-3 col-form-label col-form-label-sm text-muted">Quantity:</label>
+                                    <div class="col-4">
+                                        <input type="number" class="form-control form-control-sm qty-input" id="qtyBlue"
+                                            min="1" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="brown" id="checkBrown">
+                                <label class="form-check-label" for="checkBrown">Brown</label>
+                                <div class="form-group row">
+                                    <label for="qtyBrown"
+                                        class="col-3 col-form-label col-form-label-sm text-muted">Quantity:</label>
+                                    <div class="col-4">
+                                        <input type="number" class="form-control form-control-sm qty-input"
+                                            id="qtyBrown" min="1" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="pink" id="checkPink">
+                                <label class="form-check-label" for="checkPink">Pink</label>
+                                <div class="form-group row">
+                                    <label for="qtyPink"
+                                        class="col-3 col-form-label col-form-label-sm text-muted">Quantity:</label>
+                                    <div class="col-4">
+                                        <input type="number" class="form-control form-control-sm qty-input" id="qtyPink"
+                                            min="1" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="red" id="checkRed">
+                                <label class="form-check-label" for="checkRed">Red</label>
+                                <div class="form-group row">
+                                    <label for="qtyRed"
+                                        class="col-3 col-form-label col-form-label-sm text-muted">Quantity:</label>
+                                    <div class="col-4">
+                                        <input type="number" class="form-control form-control-sm qty-input" id="qtyRed"
+                                            min="1" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="white" id="checkWhite">
+                                <label class="form-check-label" for="checkWhite">White</label>
+                                <div class="form-group row">
+                                    <label for="qtyWhite"
+                                        class="col-3 col-form-label col-form-label-sm text-muted">Quantity:</label>
+                                    <div class="col-4">
+                                        <input type="number" class="form-control form-control-sm qty-input"
+                                            id="qtyWhite" min="1" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="item-price">Price (S$)*</label>
+                        <input type="number" class="form-control" id="item-price" placeholder="Enter item price in SGD"
+                            min="0" step="0.01" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="item-description">Item description</label>
+                        <textarea class="form-control" id="item-description" rows="3"
+                            placeholder="Enter a short description of the item"></textarea>
+                        <small id="itemDescriptionErrorMsg" class="form-text text-danger"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="item-image">Upload item image</label>
+                        <input type="file" class="form-control-file" id="item-image">
+                    </div>
+                    <div class="mt-5 mb-4">
+                        <button id="submitFormButton" type="submit" class="btn btn-primary px-4">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <div class="container" id="dataTable">
+
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="formModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Success!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Item information has been submitted successfully.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div th:insert="fragments/footer.html :: footer"></div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+    <script src="js/formScript.js"></script>
+</body>
+
+</html>

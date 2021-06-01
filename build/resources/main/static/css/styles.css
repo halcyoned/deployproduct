@@ -1,0 +1,141 @@
+#cursive {
+    font-family: 'Lily Script One', cursive;
+    font-size: 10rem;
+    color: #9c6644;
+}
+
+#logo {
+    font-family: 'Lily Script One', cursive;
+}
+
+body {
+    background-color: white;
+    
+}
+
+/* #aboutHeader {
+    height: 600px;
+    background-size: cover;
+    max-width: 100%;
+} */
+
+#productTitle {
+    text-align: center;
+}
+
+#productHeader, #aboutHeader {
+    margin: auto;
+    position: center;
+    text-align: center;
+    height: 90vh;
+}
+
+#productHeader img, #aboutHeader img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/*#indexCursive{
+    font-family: 'Lily Script One', cursive;
+    font-size: 300px;
+    color:brown;
+}
+
+#indexHeader{
+    height: 100vh;
+    background-image: url(../images/tim-gouw-3qMfzgNcCm4-unsplash.jpg);
+    background-size: cover;
+    max-width: 100%;
+}*/
+
+#productHeader div {
+    position: absolute;
+    top: 60%;
+    text-align: left;
+}
+
+#aboutHeader div {
+    position: absolute;
+    top: 70%;
+    text-align: left;
+}
+
+#productHeader h1, #aboutHeader h1 {
+    font-family: 'Lily Script One', sans-serif;
+    font-size: 5.5rem;
+    color: white;
+}
+
+#productHeader p, #aboutHeader p {
+    font-family: 'Roboto' ,sans-serif;
+    font-weight: 300;
+    color: white;
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+}
+
+.mobFullwidth h1 {
+    font-family: 'Roboto' ,sans-serif;
+    font-weight: 300;
+}
+
+#aboutText h3 {
+    font-family: 'Roboto' ,sans-serif;
+    font-weight: 300;
+}
+
+.text-overlay {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+}
+
+/* .carousel-caption {
+    text-align: left;
+    left: 100px;
+} */
+
+.carousel-caption h1 {
+    color: white;
+    font-size: 180px;
+    font-family: 'Lily Script One', cursive;
+    line-height: 1;
+}
+
+.carousel-caption p {
+    font-family: 'Roboto' ,sans-serif;
+    font-weight: 300;
+    color: white;
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+}
+
+.wrapper .carousel {
+    z-index: 0;
+}
+
+@media screen and (min-width: 600px) {
+
+    .carousel-caption {
+        text-align: left;
+        left: 100px;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+        
+    #productHeader h1, #aboutHeader h1 {
+        font-size: 3.5rem;
+    }
+
+    .carousel-caption {
+        text-align: center;
+    }
+
+    .carousel-caption h1 {
+        font-size: 100px;
+    }
+}

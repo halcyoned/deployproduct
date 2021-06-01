@@ -1,3 +1,4 @@
 org/generation/deployproduct/DeployproductApplication.java
  org.generation.deployproduct.DeployproductApplication
- org.generation.deployproduct.HelloController
+org/generation/deployproduct/security/MvcConfig.java
+ org.generation.deployproduct.security.MvcConfig
