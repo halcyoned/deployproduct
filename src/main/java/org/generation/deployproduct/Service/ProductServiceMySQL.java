@@ -15,7 +15,9 @@ public class ProductServiceMySQL implements ProductService{
     public Product save(Product product) {return null;}
 
     @Override
-    public void delete() {int product_code;}
+    public void delete(int product_code) {
+
+    }
 
     @Override
     public List<Product> all() {
