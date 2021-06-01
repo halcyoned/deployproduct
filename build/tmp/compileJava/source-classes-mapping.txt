@@ -1,0 +1,3 @@
+org/generation/deployproduct/DeployproductApplication.java
+ org.generation.deployproduct.DeployproductApplication
+ org.generation.deployproduct.HelloController
