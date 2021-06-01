@@ -7,9 +7,9 @@ public class ProductColor {
 
     public ProductColor() {}
 
-    public ProductColor(ProductColorDTO productColorDTO) {
-        this.color = productColorDTO.getColor();
-    }
+//    public ProductColor(ProductColorDTO productColorDTO) {
+//        this.color = productColorDTO.getColor();
+//    }
 
     public Integer getProduct_Product_code() { return this.Product_Product_code; }
     public void setProduct_Product_code(Integer product_Product_code) { this.Product_Product_code = product_Product_code; }

@@ -11,13 +11,13 @@ public class Product {
 
     public Product() {}
 
-    public Product(ProductDTO productDTO) {
-        this.name = productDTO.getName();
-        this.description = productDTO.getDescription();
-        this.image_url = productDTO.getImageUrl();
-        this.category = productDTO.getCategory();
-        this.price = productDTO.getPrice();
-    }
+//    public Product(ProductDTO productDTO) {
+//        this.name = productDTO.getName();
+//        this.description = productDTO.getDescription();
+//        this.image_url = productDTO.getImageUrl();
+//        this.category = productDTO.getCategory();
+//        this.price = productDTO.getPrice();
+//    }
 
     public Integer getProduct_code() { return this.Product_code; }
     public void setProduct_code(Integer product_code) { this.Product_code = product_code; }
