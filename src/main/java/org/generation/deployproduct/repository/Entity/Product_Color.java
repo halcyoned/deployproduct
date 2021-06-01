@@ -1,11 +1,11 @@
 package org.generation.deployproduct.repository.Entity;
 
-public class ProductColor {
+public class Product_Color {
 
     private Integer Product_Product_code;
     private String color;
 
-    public ProductColor() {}
+    public Product_Color() {}
 
 //    public ProductColor(ProductColorDTO productColorDTO) {
 //        this.color = productColorDTO.getColor();
