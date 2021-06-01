@@ -22,7 +22,7 @@ public class productDTO {
 
     public int Product_code() {return Product_code;}
 
-    public void setProduct_code(String Product_code) {this.Product_code = Product_code; }
+    public void setProduct_code(int Product_code) {this.Product_code = Product_code; }
 
     public String getName() {return name;}
 
