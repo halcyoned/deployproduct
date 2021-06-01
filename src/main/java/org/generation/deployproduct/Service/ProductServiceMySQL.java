@@ -1,7 +1,6 @@
 package org.generation.deployproduct.Service;
 
 import org.generation.deployproduct.repository.Entity.Product;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -12,22 +11,26 @@ public class ProductServiceMySQL implements ProductService{
     public ProductServiceMySQL() {}
 
     @Override
-    public Product save(Product product) {return null;}
-
-    @Override
-    public void delete(int product_code) {
-
-    }
-
-    @Override
-    public List<Product> all() {
-
+    public Product save(Product product)
+    {
         return null;
     }
 
     @Override
-    public Product findById(int product_code) {
+    public void delete(int product_code)
+    {
 
+    }
+
+    @Override
+    public List<Product> all()
+    {
+        return null;
+    }
+
+    @Override
+    public Product findById(int product_code)
+    {
         return null;
     }
 }

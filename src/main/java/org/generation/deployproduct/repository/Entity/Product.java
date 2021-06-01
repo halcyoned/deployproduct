@@ -1,26 +1,28 @@
 package org.generation.deployproduct.repository.Entity;
 
+import org.generation.deployproduct.controller.DTO.ProductDTO;
+
 public class Product {
 
-    private Integer Product_code;
+    private int Product_code;
     private String name;
     private String description;
+    private double price;
     private String image_url;
     private String category;
-    private double price;
 
     public Product() {}
 
-//    public Product(ProductDTO productDTO) {
-//        this.name = productDTO.getName();
-//        this.description = productDTO.getDescription();
-//        this.image_url = productDTO.getImageUrl();
-//        this.category = productDTO.getCategory();
-//        this.price = productDTO.getPrice();
-//    }
+    public Product(ProductDTO productDTO) {
+        this.name = productDTO.getName();
+        this.description = productDTO.getDescription();
+        this.image_url = productDTO.getImage_url();
+        this.category = productDTO.getCategory();
+        this.price = productDTO.getPrice();
+    }
 
-    public Integer getProduct_code() { return this.Product_code; }
-    public void setProduct_code(Integer product_code) { this.Product_code = product_code; }
+    public int getProduct_code() { return this.Product_code; }
+    public void setProduct_code(int product_code) { this.Product_code = product_code; }
 
     public String getName() { return this.name; }
     public void setName(String name) { this.name = name; }

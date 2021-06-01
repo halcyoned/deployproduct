@@ -4,9 +4,10 @@ import org.generation.deployproduct.repository.Entity.Product;
 import java.util.List;
 
 public interface ProductService {
-    Product save (Product product);
 
-    void delete (int product_code);
+    Product save(Product product);
+
+    void delete(int product_code);
 
     List<Product> all();
 
