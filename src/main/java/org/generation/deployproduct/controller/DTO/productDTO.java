@@ -1,16 +1,30 @@
-package org.generation.deployproduct.controller.DTO.
+package org.generation.deployproduct.controller.DTO.;
 
-public class productColorDTO {
 
-    private int Product_Product_code;
-    private String color;
+public class productDTO {
 
-    public productColorDTO(int Product_Product_code, String color)
+    private int Product_code;
+    private String name;
+    private String description;
+    private double price;
+    private String image_url;
+    private String category;
+
+    public productDTO (int Product_code, String name, String description, double price, String image_url, String category)
     {
-        this.productColorCode = Product_Product_code;
-        this.color = color;
+        this.Product_code = Product_code;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.image_url = image_url;
+        this.category = category;
+    }
 
-    public String getProductCode() {return Product_Product_code;}
+    public int Product_code() {return Product_code;}
+
+    public void setProduct_code(int Product_code) {this.Product_code = Product_code; }
+
+    public String getName() {return name;}
 
     public void setName(String name) {this.name = name; }
 
@@ -18,15 +32,19 @@ public class productColorDTO {
 
     public void setDescription(String description) {this.description = description;}
 
-    public String getImageUrl() {return image_url; }
-
-    public void setImageUrl(String imageUrl) {this.imageUrl = image_url; }
-
-    public void setCategory (String category) {this.category = category; }
-
-    public String getCategory() {return category; }
-
     public void setPrice (double price) {this.price = price; }
 
     public double getPrice() {return price; }
+
+    public String getImage_url() {return image_url; }
+
+    public void setImage_url(String image_url) {this.image_url = image_url; }
+
+    public void setCategory (String category) {this.category = category;
+
+    public String getCategory() {return category; }
+
+
 }
+
+
