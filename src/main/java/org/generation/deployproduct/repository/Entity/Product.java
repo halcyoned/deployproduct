@@ -11,8 +11,8 @@ import javax.persistence.Id;
 public class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int Product_code;
+
     private String name;
     private String description;
     private double price;
@@ -22,6 +22,7 @@ public class Product {
     public Product() {}
 
     public Product(ProductDTO productDTO) {
+        this.Product_code = productDTO.getProduct_code();
         this.name = productDTO.getName();
         this.description = productDTO.getDescription();
         this.image_url = productDTO.getImage_url();
