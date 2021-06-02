@@ -8,10 +8,10 @@ public interface ProductColorService {
 
     Product_Color save(Product_Color product_color);
 
-    void delete(int product_product_code);
+    void delete(int product_color_id);
 
     List<Product_Color> all();
 
-    Product_Color findById(int product_product_code);
+    Product_Color findById(int product_color_id);
 
 }
