@@ -3,19 +3,29 @@ package org.generation.deployproduct.controller.DTO;
 
 public class ProductDTO {
 
+    private int Product_code;
     private String name;
     private String description;
     private double price;
     private String image_url;
     private String category;
 
-    public ProductDTO(String name, String description, double price, String image_url, String category)
+    public ProductDTO(int product_code, String name, String description, double price, String image_url, String category)
     {
+        this.Product_code = product_code;
         this.name = name;
         this.description = description;
         this.price = price;
         this.image_url = image_url;
         this.category = category;
+    }
+
+    public int getProduct_code() {
+        return this.Product_code;
+    }
+
+    public void setProduct_code(int product_code) {
+        this.Product_code = product_code;
     }
 
     public String getName() { return this.name; }
