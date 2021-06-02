@@ -1,6 +1,8 @@
 package org.generation.deployproduct.Service;
 
+import org.generation.deployproduct.repository.ProductRepository;
 import org.generation.deployproduct.repository.Entity.Product;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -8,29 +10,35 @@ import java.util.*;
 @Service
 public class ProductServiceMySQL implements ProductService{
 
-    public ProductServiceMySQL() {}
+    private final ProductRepository productRepository;
+
+    public ProductServiceMySQL(@Autowired ProductRepository productRepository) {this.productRepository = productRepository;}
 
     @Override
     public Product save(Product product)
     {
-        return null;
+        return productRepository.save(product);
     }
 
     @Override
     public void delete(int product_code)
     {
-
+        productRepository.deleteById(product_code);
     }
 
     @Override
     public List<Product> all()
     {
-        return null;
+        List<Product> result = new ArrayList<>();
+        productRepository.findAll().forEach(result::add);
+        return result;
     }
 
     @Override
     public Product findById(int product_code)
     {
-        return null;
+        Optional<Product> product = productRepository.findById(product_code);
+        Product productResponse = product.get();
+        return productResponse;
     }
 }
