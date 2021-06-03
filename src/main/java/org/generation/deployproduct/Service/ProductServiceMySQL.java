@@ -12,6 +12,8 @@ public class ProductServiceMySQL implements ProductService{
 
     private final ProductRepository productRepository;
 
+    //@Autowired is dependency injection (ProductServices is dependant on ProductRepository)
+    //ProductServiceMySQL is able to use all the methods in the ProductRepository
     public ProductServiceMySQL(@Autowired ProductRepository productRepository) {this.productRepository = productRepository;}
 
     @Override

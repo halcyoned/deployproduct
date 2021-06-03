@@ -7,6 +7,9 @@ import org.generation.deployproduct.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+//@RestController annotation informs the system that we are creating a REST API in this class
+//4 REST APIs created in this class to be called by web app
+//@RequestMapping provides a path for REST APIs (e.g. http://localhost:8080/product)
 @RestController
 @RequestMapping("/product")
 public class ProductController {
@@ -27,17 +30,29 @@ public class ProductController {
     }
      */
 
+    //@Autowired here enables us to use ProductService methods (declared in ProductService class)
+    //ProductController is able to use the ProductServices methods to perform the CRUD operations
     public ProductController(@Autowired ProductService productService)
     {
         this.productService = productService;
     }
 
+    //@Mappping - client(browser) makes a http request with the 4 basic methods (i.e. GET, POST, PUT, DELETE)
+    //@GetMapping --> if client wants to get all products, it will map to @GetMapping with path "/all"
+    //http://localhost:8080/product/all --> if we do this, we want to get all products
+    @CrossOrigin
     @GetMapping("/all")
     public Iterable<Product> getProducts()
     {
         return productService.all();
     }
 
+    //Every browser engine will have security to block web app that is not within the same domain
+    //(domain meaning servers that are up and running - e.g. tp.edu.sg, generation.org)
+    //localhost is a testing environment, it is not a valid domain
+    //CORS - Cross Origin Resource Sharing policy
+    //We want to disable CORS policy, tell the browser that this (localhost:8080) is a valid domain and run web app
+    //@PostMapping handles the POST method from the client
     @CrossOrigin
     @PostMapping("/add")
     public Product save(@RequestBody ProductDTO productDto)
@@ -46,12 +61,15 @@ public class ProductController {
         return productService.save(new Product(productDto));
     }
 
+    //GetMapping handles the GET method from client with path "/{id}"
+    @CrossOrigin
     @GetMapping("/{id}")
     public Product findProductById(@PathVariable Integer id)
     {
         return productService.findById(id);
     }
 
+    //PutMapping handles the PUT method from client
     @CrossOrigin
     @PutMapping("/{id}")
     public Product update( @PathVariable Integer id, @RequestBody ProductDTO productDto)
@@ -66,6 +84,7 @@ public class ProductController {
         return productService.save(product);
     }
 
+    //DeleteMapping handles the DELETE method from client
     @CrossOrigin
     @DeleteMapping("/{id}")
     public void delete (@PathVariable Integer id) {
