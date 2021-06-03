@@ -79,9 +79,36 @@ class ProductsController {
     }
 
     displayItem() {
+        //fetch data from database using REST API endpoint from Spring Boot
+        var productController = this;
+        productController._products = [];
 
-    //TODO add in code from google docs
+        fetch('http://127.0.0.1:8080/product/all')
+            .then((resp) => resp.json())
+            .then(function(data) {
+                console.log("2. receive data")
+                console.log(data);
 
+                data.forEach(function (product, index) {
+
+                    const productObj = {
+                        oId: product.product_code,
+                        oName: product.name,
+                        oDescription: product.description,
+                        oImage_url: product.image_url,
+                        oCategory: product.category,
+                        oPrice: product.price
+                    };
+
+                productController._products.push(productObj);
+                });
+
+                productController.render();
+
+            })
+            .catch(function(error) {
+                console.log(error);
+            });
     }
 
     render() {
