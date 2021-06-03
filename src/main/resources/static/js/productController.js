@@ -35,20 +35,47 @@ class ProductsController {
         this._items = [];   //create an array to store the details of product items
     }
 
-
     //method to add the items into the array
-    addItem(itemCode, itemName, colorArray, itemPrice, itemDescript, itemImage, itemCategory) {
+    addItem(product_code, name, colorArray, price, description, image_url, category) {
+
+        var productController = this;
+
         const itemObj = {
-            oItemCode: itemCode,
-            oItemName: itemName,
-            oColorArray: colorArray,
-            oItemPrice: itemPrice,
-            oItemDescription: itemDescript,
-            oItemImage: itemImage,
-            oItemCategory: itemCategory
+            product_code: product_code,
+            name: name,
+            colorArray: colorArray,
+            price: price,
+            description: description,
+            image_url: image_url,
+            category: category
         };
 
-        this._items.push(itemObj);
+        const formData = new formData;
+        formData.append('product_code', product_code);
+        formData.append('name', name);
+        formData.append('description', description);
+        formData.append('price', price);
+        formData.append('image_url', image_url);
+        formData.append('category', category);
+        formData.append('colorArray', colorArray);
+        formData.append('imageFile', imageFile);
+
+        fetch("http://localhost:8080/product/add", {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log("Success", data);
+            alert("Successfully added to product")
+        })
+        .catch((error) => {
+            console.error("Error", error);
+            alert("Error adding item to product")
+        });
+
+//        this._items.push(itemObj);
+        
     }
 
     displayItem() {
