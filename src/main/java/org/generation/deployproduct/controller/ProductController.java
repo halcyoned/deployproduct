@@ -1,6 +1,7 @@
 package org.generation.deployproduct.controller;
 
 import org.generation.deployproduct.Service.ProductService;
+import org.generation.deployproduct.component.FileUploadUtil;
 import org.generation.deployproduct.controller.DTO.ProductDTO;
 import org.generation.deployproduct.repository.Entity.Product;
 import org.generation.deployproduct.repository.ProductRepository;
