@@ -5,7 +5,11 @@ import org.generation.deployproduct.controller.DTO.ProductDTO;
 import org.generation.deployproduct.repository.Entity.Product;
 import org.generation.deployproduct.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 //@RestController annotation informs the system that we are creating a REST API in this class
 //4 REST APIs created in this class to be called by web app
@@ -55,10 +59,26 @@ public class ProductController {
     //@PostMapping handles the POST method from the client
     @CrossOrigin
     @PostMapping("/add")
-    public Product save(@RequestBody ProductDTO productDto)
+    public Product save(@RequestParam(name = "Product_code", required = true) int product_code,
+                        @RequestParam(name = "name", required = true) String name,
+                        @RequestParam(name = "description", required = true) String description,
+                        @RequestParam(name = "price", required = true) double price,
+                        @RequestParam(name = "image_url", required = true) String image_url,
+                        @RequestParam(name = "category", required = true) String category,
+                        @RequestParam("imagefile") MultipartFile multipartFile) throws IOException
     {
-        System.out.println("In Save");
-        return productService.save(new Product(productDto));
+        String uploadDir1 = "productImages/images";
+
+        System.out.println("Inside");
+
+        System.out.println("aaaa: " + multipartFile.getOriginalFilename());
+
+        String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+        FileUploadUtil.saveFile(uploadDir1, fileName, multipartFile);
+
+        ProductDTO productDTO = new ProductDTO(product_code, name, description, price, image_url, category);
+        Product product = new Product(productDTO);
+        return productService.save(product);
     }
 
     //GetMapping handles the GET method from client with path "/{id}"

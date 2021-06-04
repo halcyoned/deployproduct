@@ -6,6 +6,8 @@ import org.generation.deployproduct.repository.Entity.Product_Color;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
+
 @RestController
 @RequestMapping("/product_color")
 public class ProductColorController {
@@ -25,9 +27,11 @@ public class ProductColorController {
 
     @CrossOrigin
     @PostMapping("/add")
-    public Product_Color save(@RequestBody ProductColorDTO productColorDTO) {
-        System.out.println("In save method");
-        return productColorService.save(new Product_Color(productColorDTO));
+    public Product_Color save(@RequestParam(name = "Product_Product_code", required = true) int product_product_code,
+                              @RequestParam(name = "color", required = true) String color) throws IOException {
+        ProductColorDTO productColorDTO = new ProductColorDTO(product_product_code, color);
+        Product_Color product_color = new Product_Color(productColorDTO);
+        return productColorService.save(product_color);
     }
 
     @CrossOrigin
