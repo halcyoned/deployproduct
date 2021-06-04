@@ -49,23 +49,22 @@ class ProductsController {
             category: category
         };
 
-        const formData = new formData;
+        const formData = new FormData();
         formData.append('product_code', product_code);
         formData.append('name', name);
         formData.append('description', description);
         formData.append('price', price);
         formData.append('image_url', image_url);
         formData.append('category', category);
-        formData.append('imageFile', imagePath);
+        formData.append('imagefile', imagePath);
 
-        fetch("http://localhost:8080/product/add", {
+        fetch('http://127.0.0.1:8080/product/add', {
             method: 'POST',
             body: formData
         })
             .then(response => response.json())
             .then(data => {
                 console.log("Success", data);
-                alert("Successfully added to product")
             })
             .catch((error) => {
                 console.error("Error", error);

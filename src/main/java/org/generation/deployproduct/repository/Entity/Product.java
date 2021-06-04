@@ -39,7 +39,7 @@ public class Product {
     public String getDescription() { return this.description; }
     public void setDescription(String description) { this.description = description; }
 
-    public String getImageUrl() { return "/ProductImages/" + image_url; }
+    public String getImageUrl() { return "/productImages/" + image_url; }
     public void setImage_url(String image_url) { this.image_url = image_url; }
 
     public String getCategory() { return this.category; }
