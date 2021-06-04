@@ -60,7 +60,7 @@ public class ProductController {
     //@PostMapping handles the POST method from the client
     @CrossOrigin
     @PostMapping("/add")
-    public Product save(@RequestParam(name = "Product_code", required = true) int product_code,
+    public Product save(@RequestParam(name = "product_code", required = true) int product_code,
                         @RequestParam(name = "name", required = true) String name,
                         @RequestParam(name = "description", required = true) String description,
                         @RequestParam(name = "price", required = true) double price,

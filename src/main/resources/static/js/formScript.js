@@ -39,6 +39,10 @@ document.querySelector("#checkWhite").onchange = function () {
 
 
 //For saving of user input form data
+const productControl = new ProductsController();
+
+var storeImage;
+
 var formList = [];
 
 function resetError() {
@@ -66,7 +70,9 @@ function submitForm() {
     var itemCategory = document.querySelector("#item-category").value;
     var itemPrice = document.querySelector("#item-price").value;
     var itemDescript = document.querySelector("#item-description").value;
-    var itemImage = "";                                                                 //image??
+
+    var newItemImageUrl = document.querySelector("#imagefile");
+    var imageUrl = "images/" + newItemImageUrl.value.replace("C:\\fakepath\\", "");
 
     var colorArray = [];
     if (document.querySelector("#checkBlack").checked == true) {
@@ -78,7 +84,7 @@ function submitForm() {
     }
 
     if (document.querySelector("#checkBrown").checked == true) {
-        colorArray.push(document.querySelector("#checkBlue").value);
+        colorArray.push(document.querySelector("#checkBrown").value);
     }
 
     if (document.querySelector("#checkPink").checked == true) {
@@ -139,13 +145,27 @@ function submitForm() {
     }
 
     if (foundColor && foundCode && foundName && foundDescript) {
-        addToList(itemCode, itemName, itemCategory, colorArray, itemPrice, itemDescript, itemImage);
+        addToList(itemCode, itemName, itemCategory, colorArray, itemPrice, itemDescript);
+
+        //Add the task to the task manager
+        productControl.addItem(itemCode, itemName, itemPrice, itemDescript, imageUrl, itemCategory, storeImage);
+
         resetForm();
         $("#formModal").modal("show");
     }
 }
 
-function addToList(itemCode, itemName, itemCategory, colorArray, itemPrice, itemDescript, itemImage) {
+//Select file input
+const input = document.querySelector("#imagefile");
+
+//Add event listener
+input.addEventListener("change", () => {
+    storeImage = input.files[0];
+    console.log("input: " + storeImage);
+    //uploadFile(input.files[0]);
+});
+
+function addToList(itemCode, itemName, itemCategory, colorArray, itemPrice, itemDescript) {
     const item = {
         iCode: itemCode,
         iName: itemName,
@@ -153,7 +173,6 @@ function addToList(itemCode, itemName, itemCategory, colorArray, itemPrice, item
         iColorArray: colorArray,
         iPrice: itemPrice,
         iDescript: itemDescript,
-        iItemImage: itemImage
     }
     formList.push(item);
     listForm();
@@ -162,75 +181,10 @@ function addToList(itemCode, itemName, itemCategory, colorArray, itemPrice, item
 function listForm() {
     console.log(`Total items: ${formList.length}`);
     console.log(formList);
-    appendData(formList);
 }
 
 
 // function displaySuccessModal() {
 //     document.querySelector("#submitFormButton").setAttribute(data - toggle, "modal");
 //     document.querySelector("#submitFormButton").setAttribute(data - target, "#formModal");
-// }
-
-
-
-
-
-//For saving of user input data into a table
-let data = [{
-    code: 31263,
-    name: "Men's Backpack",
-    colorArray: ["Black", "Blue", "Red", "White"],
-    price: 69.90,
-    description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
-    image: "images/bag1.jpg"
-},
-{
-    code: 12312,
-    name: "Ladies' Backpack",
-    colorArray: ["Black", "Pink", "White"],
-    price: 59.90,
-    description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
-    image: "images/bag2.jpg"
-},
-{
-    code: 54567,
-    name: "Children's Backpack",
-    colorArray: ["Black", "Pink"],
-    price: 25.90,
-    description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
-    image: "images/bag3.jpg"
-}];
-
-// function createTable(dataItem) {
-//     `
-//     <tr>
-//     <td>${dataItem.iCode}</td>
-//     <td>${dataItem.iName}</td>
-//     <td>${dataItem.iColorArray}</td>
-//     <td>${dataItem.iPrice}</td>
-//     <td>${dataItem.iDescript}</td>
-//     <td><img src="${dataItem.iItemImage}"></td>
-//     </tr>
-// `
-// }
-
-// function appendData(userData) {
-
-//     let myTableHeader = "<table id='userTable'><tr><th>Item Code</th><th>Item Name</th><th>Colors Available</th><th>Item Price</th><th>Item Description</th><th>Item Image</th></tr>";
-//     let myTableEnd = "</table>";
-
-//     let dataList = [];
-
-//     dataList.push(myTableHeader);
-//     console.log(dataList);
-
-//     for (let i = 0; i < userData.length; i++) {
-//         let myTableContent = createTable(userData[i]);
-//         dataList.push(myTableContent);
-//     }
-
-//     dataList.push(myTableEnd);
-
-//     const pHTML = dataList.join("\n");
-//     document.querySelector("#dataTable").innerHTML = pHTML;
 // }

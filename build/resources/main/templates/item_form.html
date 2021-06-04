@@ -43,17 +43,19 @@
                 <form action="#" onsubmit="event.preventDefault(); submitForm();" id="item_form">
                     <div class="form-group">
                         <label for="item-code">Item code*</label>
-                        <input type="text" class="form-control" id="item-code" placeholder="Enter item code" required>
+                        <input type="text" class="form-control" id="item-code" name="item-code"
+                            placeholder="Enter item code" required>
                         <small id="itemCodeErrorMsg" class="form-text text-danger"></small>
                     </div>
                     <div class="form-group">
                         <label for="item-name">Item name</label>
-                        <input type="text" class="form-control" id="item-name" placeholder="Enter item name (optional)">
+                        <input type="text" class="form-control" id="item-name" name="item-name"
+                            placeholder="Enter item name (optional)">
                         <small id="itemNameErrorMsg" class="form-text text-danger"></small>
                     </div>
                     <div class="form-group">
                         <label for="item-category">Item category</label>
-                        <select class="custom-select" id="item-category" required>
+                        <select class="custom-select" id="item-category" name="item-category" required>
                             <option value="" selected disabled>---------- Please select one ----------</option>
                             <option value="men">Men's</option>
                             <option value="women">Women's</option>
@@ -142,19 +144,19 @@
                     </div>
                     <div class="form-group">
                         <label for="item-price">Price (S$)*</label>
-                        <input type="number" class="form-control" id="item-price" placeholder="Enter item price in SGD"
-                            min="0" step="0.01" required>
+                        <input type="number" class="form-control" id="item-price" name="item-price"
+                            placeholder="Enter item price in SGD" min="0" step="0.01" required>
                     </div>
 
                     <div class="form-group">
                         <label for="item-description">Item description</label>
-                        <textarea class="form-control" id="item-description" rows="3"
+                        <textarea class="form-control" id="item-description" name="item-description" rows="3"
                             placeholder="Enter a short description of the item"></textarea>
                         <small id="itemDescriptionErrorMsg" class="form-text text-danger"></small>
                     </div>
                     <div class="form-group">
-                        <label for="item-image">Upload item image</label>
-                        <input type="file" class="form-control-file" id="item-image">
+                        <label for="imagefile">Upload item image</label>
+                        <input type="file" class="form-control-file" id="imagefile" name="imagefile">
                     </div>
                     <div class="mt-5 mb-4">
                         <button id="submitFormButton" type="submit" class="btn btn-primary px-4">Submit</button>
@@ -198,6 +200,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
         crossorigin="anonymous"></script>
+    <script src="js/productController.js"></script>
     <script src="js/formScript.js"></script>
 </body>
 
