@@ -21,20 +21,6 @@ public class ProductController {
 
     final ProductService productService;
 
-
-    //Test - IMPROPER WAY
-    /*final ProductRepository productRepository;
-
-    public ProductController(@Autowired ProductRepository productRepository) {
-        this.productRepository = productRepository;
-    }
-
-    @GetMapping
-    public Iterable<Product> getProduct() {
-        return productRepository.findAll();
-    }
-     */
-
     //@Autowired here enables us to use ProductService methods (declared in ProductService class)
     //ProductController is able to use the ProductServices methods to perform the CRUD operations
     public ProductController(@Autowired ProductService productService)

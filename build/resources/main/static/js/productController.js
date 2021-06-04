@@ -79,23 +79,45 @@ class ProductsController {
         //fetch data from database using REST API endpoint from Spring Boot
         var productController = this;
         productController._items = [];
+        var colorArray = [];
 
         fetch('http://127.0.0.1:8080/product/all')
             .then((resp) => resp.json())
             .then(function (data) {
-                console.log("2. receive data")
+                console.log("1. receive product data");
                 console.log(data);
 
-                data.forEach(function (product, index) {
+                data.forEach(function (product, index1) {
+                    fetch('http://127.0.0.1:8080/product_color/all')
+                        .then((resp) => resp.json())
+                        .then(function (data) {
+                            data.forEach(function (product_color, index2) {
+                                if (product_color.product_Product_code === product.product_code)
+                                {
+                                    const productColorObj =
+                                    {
+                                        oId: product_color.product_Color_id,
+                                        oCode: product_color.product_Product_code,
+                                        oColor: product_color.color
+                                    };
+                                    colorArray.push(productColorObj);
+                                    console.log(colorArray);
+                                }
+                            })
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+
                     const productObj = {
                         oId: product.product_code,
                         oName: product.name,
                         oDescription: product.description,
                         oImage_url: product.imageUrl,
                         oCategory: product.category,
-                        oPrice: product.price
+                        oPrice: product.price,
+                        oColorArray: colorArray
                     };
-
                     productController._items.push(productObj);
                 });
 
@@ -105,6 +127,7 @@ class ProductsController {
             .catch(function (error) {
                 console.log(error);
             });
+
     }
 
     render() {

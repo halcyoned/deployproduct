@@ -36,9 +36,9 @@ public class ProductColorController {
 
     @CrossOrigin
     @GetMapping("/{id}")
-    public Product_Color findProductColorById(@PathVariable Integer product_color_id) {
+    public Product_Color findProductColorById(@PathVariable Integer id) {
         System.out.println("In findProductColorById method");
-        return productColorService.findById(product_color_id);
+        return productColorService.findById(id);
     }
 
     @CrossOrigin
