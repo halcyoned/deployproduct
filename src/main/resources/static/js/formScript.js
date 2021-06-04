@@ -201,36 +201,36 @@ let data = [{
     image: "images/bag3.jpg"
 }];
 
-function createTable(dataItem) {
-    `
-    <tr>
-    <td>${dataItem.iCode}</td>
-    <td>${dataItem.iName}</td>
-    <td>${dataItem.iColorArray}</td>
-    <td>${dataItem.iPrice}</td>
-    <td>${dataItem.iDescript}</td>
-    <td><img src="${dataItem.iItemImage}"></td>
-    </tr>
-`
-}
+// function createTable(dataItem) {
+//     `
+//     <tr>
+//     <td>${dataItem.iCode}</td>
+//     <td>${dataItem.iName}</td>
+//     <td>${dataItem.iColorArray}</td>
+//     <td>${dataItem.iPrice}</td>
+//     <td>${dataItem.iDescript}</td>
+//     <td><img src="${dataItem.iItemImage}"></td>
+//     </tr>
+// `
+// }
 
-function appendData(userData) {
+// function appendData(userData) {
 
-    let myTableHeader = "<table id='userTable'><tr><th>Item Code</th><th>Item Name</th><th>Colors Available</th><th>Item Price</th><th>Item Description</th><th>Item Image</th></tr>";
-    let myTableEnd = "</table>";
+//     let myTableHeader = "<table id='userTable'><tr><th>Item Code</th><th>Item Name</th><th>Colors Available</th><th>Item Price</th><th>Item Description</th><th>Item Image</th></tr>";
+//     let myTableEnd = "</table>";
 
-    let dataList = [];
+//     let dataList = [];
 
-    dataList.push(myTableHeader);
-    console.log(dataList);
+//     dataList.push(myTableHeader);
+//     console.log(dataList);
 
-    for (let i = 0; i < userData.length; i++) {
-        let myTableContent = createTable(userData[i]);
-        dataList.push(myTableContent);
-    }
+//     for (let i = 0; i < userData.length; i++) {
+//         let myTableContent = createTable(userData[i]);
+//         dataList.push(myTableContent);
+//     }
 
-    dataList.push(myTableEnd);
+//     dataList.push(myTableEnd);
 
-    const pHTML = dataList.join("\n");
-    document.querySelector("#dataTable").innerHTML = pHTML;
-}
+//     const pHTML = dataList.join("\n");
+//     document.querySelector("#dataTable").innerHTML = pHTML;
+// }

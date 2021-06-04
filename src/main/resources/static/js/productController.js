@@ -36,14 +36,13 @@ class ProductsController {
     }
 
     //method to add the items into the array
-    addItem(product_code, name, colorArray, price, description, image_url, category) {
+    addItem(product_code, name, price, description, image_url, category, imagePath) {
 
         var productController = this;
 
         const itemObj = {
             product_code: product_code,
             name: name,
-            colorArray: colorArray,
             price: price,
             description: description,
             image_url: image_url,
@@ -57,25 +56,24 @@ class ProductsController {
         formData.append('price', price);
         formData.append('image_url', image_url);
         formData.append('category', category);
-        formData.append('colorArray', colorArray);
-        formData.append('imageFile', imageFile);
+        formData.append('imageFile', imagePath);
 
         fetch("http://localhost:8080/product/add", {
             method: 'POST',
             body: formData
         })
-        .then(response => response.json())
-        .then(data => {
-            console.log("Success", data);
-            alert("Successfully added to product")
-        })
-        .catch((error) => {
-            console.error("Error", error);
-            alert("Error adding item to product")
-        });
+            .then(response => response.json())
+            .then(data => {
+                console.log("Success", data);
+                alert("Successfully added to product")
+            })
+            .catch((error) => {
+                console.error("Error", error);
+                alert("Error adding item to product")
+            });
 
-//        this._items.push(itemObj);
-        
+        //        this._items.push(itemObj);
+
     }
 
     displayItem() {
@@ -85,7 +83,7 @@ class ProductsController {
 
         fetch('http://127.0.0.1:8080/product/all')
             .then((resp) => resp.json())
-            .then(function(data) {
+            .then(function (data) {
                 console.log("2. receive data")
                 console.log(data);
 
@@ -99,19 +97,18 @@ class ProductsController {
                         oPrice: product.price
                     };
 
-                productController._items.push(productObj);
+                    productController._items.push(productObj);
                 });
 
                 productController.render();
 
             })
-            .catch(function(error) {
+            .catch(function (error) {
                 console.log(error);
             });
     }
 
-    render()
-    {
+    render() {
         var productController = this;
         var productHTMLList = [];
 
@@ -122,11 +119,11 @@ class ProductsController {
         for (var i = 0; i < productController._items.length; i++) {
 
             if (this._items[i].oCategory == "men") {
-            const item = productController._items[i];    //this is to assign the individual items to the variable
+                const item = productController._items[i];    //this is to assign the individual items to the variable
 
-            const productHTML = createHTMLList(i, item.oId, item.oName, item.oPrice, item.oDescription, item.oImage_url, item.oCategory);
+                const productHTML = createHTMLList(i, item.oId, item.oName, item.oPrice, item.oDescription, item.oImage_url, item.oCategory);
 
-            productHTMLList.push(productHTML);
+                productHTMLList.push(productHTML);
             }
         }
         //add empty child div to ensure cards aligns to left side, all cards have width:18rem
@@ -141,12 +138,12 @@ class ProductsController {
         productHTMLList.push('<div style="width:100%; text-align: center"><h3 class="display-4 mb-4" style="font-size: 25px;">Look chic and stylish for the office or gatherings</h3></div>');
 
         for (var i = 0; i < this._items.length; i++) {
-            if(this._items[i].oCategory == "ladies") {
-            const item = this._items[i];    //this is to assign the individual items to the variable
+            if (this._items[i].oCategory == "ladies") {
+                const item = this._items[i];    //this is to assign the individual items to the variable
 
-            const productHTML = createHTMLList(i, item.oId, item.oName, item.oPrice, item.oDescription, item.oImage_url, item.oCategory);
+                const productHTML = createHTMLList(i, item.oId, item.oName, item.oPrice, item.oDescription, item.oImage_url, item.oCategory);
 
-            productHTMLList.push(productHTML);
+                productHTMLList.push(productHTML);
             }
         }
         //add empty child div to ensure cards aligns to left side, all cards have width:18rem
@@ -161,12 +158,12 @@ class ProductsController {
         productHTMLList.push('<div style="width:100%; text-align: center"><h3 class="display-4 mb-4" style="font-size: 25px;">Suitable for school or the playground</h3></div>');
 
         for (var i = 0; i < this._items.length; i++) {
-            if(this._items[i].oCategory == "kids") {
-            const item = this._items[i];    //this is to assign the individual items to the variable
+            if (this._items[i].oCategory == "kids") {
+                const item = this._items[i];    //this is to assign the individual items to the variable
 
-            const productHTML = createHTMLList(i, item.oId, item.oName, item.oPrice, item.oDescription, item.oImage_url, item.oCategory);
+                const productHTML = createHTMLList(i, item.oId, item.oName, item.oPrice, item.oDescription, item.oImage_url, item.oCategory);
 
-            productHTMLList.push(productHTML);
+                productHTMLList.push(productHTML);
             }
         }
         //add empty child div to ensure cards aligns to left side, all cards have width:18rem
