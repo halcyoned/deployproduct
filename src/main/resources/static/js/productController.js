@@ -13,12 +13,15 @@ const createHTMLList = (index, code, name, price, description, imageurl, categor
     </div>`;
 
 const createColorDropdown = (colorArray) => {
+    console.log(colorArray);
     var colorCode = "";
     for (i = 0; i < colorArray.length; i++) {
 
-        colorCode = colorCode + `<a class="dropdown-item" href="#">${(colorArray[i].substring(0, 1)).toUpperCase() + colorArray[i].substring(1)}</a>`;
+        colorCode = colorCode + `<a class="dropdown-item" href="#">${(colorArray[i].oColor.substring(0, 1)).toUpperCase() + colorArray[i].oColor.substring(1)}</a>`;
     }
     return colorCode;
+
+    //document.querySelector("#colorDropdown").innerHTML = ..;
 }
 
 function displayProductModal(item) {
@@ -79,7 +82,8 @@ class ProductsController {
         //fetch data from database using REST API endpoint from Spring Boot
         var productController = this;
         productController._items = [];
-        var colorArray = [];
+        //var colorArray = [];
+        //console.log(colorArray);
 
         fetch('http://127.0.0.1:8080/product/all')
             .then((resp) => resp.json())
@@ -88,26 +92,30 @@ class ProductsController {
                 console.log(data);
 
                 data.forEach(function (product, index1) {
+                    var colorArray = [];
+
                     fetch('http://127.0.0.1:8080/product_color/all')
-                        .then((resp) => resp.json())
-                        .then(function (data) {
-                            data.forEach(function (product_color, index2) {
-                                if (product_color.product_Product_code === product.product_code)
+                    .then((resp) => resp.json())
+                    .then(function (dataColor) {
+                        dataColor.forEach(function (product_color, index2) {
+                            if (product_color.product_Product_code == product.product_code)
+                            {
+                                const productColorObj =
                                 {
-                                    const productColorObj =
-                                    {
-                                        oId: product_color.product_Color_id,
-                                        oCode: product_color.product_Product_code,
-                                        oColor: product_color.color
-                                    };
-                                    colorArray.push(productColorObj);
-                                    console.log(colorArray);
-                                }
-                            })
-                        })
-                        .catch(function (error) {
-                            console.log(error);
+                                    oId: product_color.product_Color_id,
+                                    oCode: product_color.product_Product_code,
+                                    oColor: product_color.color
+                                };
+                                colorArray.push(productColorObj);
+                                //console.log(colorArray);
+                            }
                         });
+
+                        //console.log(colorArray);
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
 
                     const productObj = {
                         oId: product.product_code,
@@ -118,7 +126,10 @@ class ProductsController {
                         oPrice: product.price,
                         oColorArray: colorArray
                     };
+                    //console.log(colorArray);
                     productController._items.push(productObj);
+
+                    //console.log(productController._items);
                 });
 
                 productController.render();
