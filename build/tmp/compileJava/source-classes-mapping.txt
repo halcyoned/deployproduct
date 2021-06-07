@@ -1,8 +1,30 @@
 org/generation/deployproduct/security/MvcConfig.java
  org.generation.deployproduct.security.MvcConfig
+org/generation/deployproduct/controller/DTO/ProductColorDTO.java
+ org.generation.deployproduct.controller.DTO.ProductColorDTO
+org/generation/deployproduct/Service/ProductServiceMySQL.java
+ org.generation.deployproduct.Service.ProductServiceMySQL
+org/generation/deployproduct/repository/Entity/Product_Color.java
+ org.generation.deployproduct.repository.Entity.Product_Color
+org/generation/deployproduct/repository/ProductRepository.java
+ org.generation.deployproduct.repository.ProductRepository
+org/generation/deployproduct/component/FileUploadUtil.java
+ org.generation.deployproduct.component.FileUploadUtil
+org/generation/deployproduct/Service/ProductService.java
+ org.generation.deployproduct.Service.ProductService
+org/generation/deployproduct/Service/ProductColorServiceMySQL.java
+ org.generation.deployproduct.Service.ProductColorServiceMySQL
+org/generation/deployproduct/repository/Product_ColorRepository.java
+ org.generation.deployproduct.repository.Product_ColorRepository
+org/generation/deployproduct/Service/ProductColorService.java
+ org.generation.deployproduct.Service.ProductColorService
+org/generation/deployproduct/controller/ProductColorController.java
+ org.generation.deployproduct.controller.ProductColorController
 org/generation/deployproduct/DeployproductApplication.java
  org.generation.deployproduct.DeployproductApplication
 org/generation/deployproduct/repository/Entity/Product.java
  org.generation.deployproduct.repository.Entity.Product
-org/generation/deployproduct/repository/Entity/ProductColor.java
- org.generation.deployproduct.repository.Entity.ProductColor
+org/generation/deployproduct/controller/ProductController.java
+ org.generation.deployproduct.controller.ProductController
+org/generation/deployproduct/controller/DTO/ProductDTO.java
+ org.generation.deployproduct.controller.DTO.ProductDTO
