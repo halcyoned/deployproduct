@@ -27,7 +27,7 @@ public class ProductColorController {
 
     @CrossOrigin
     @PostMapping("/add")
-    public Product_Color save(@RequestParam(name = "Product_Product_code", required = true) int product_product_code,
+    public Product_Color save(@RequestParam(name = "product_Product_code", required = true) int product_product_code,
                               @RequestParam(name = "color", required = true) String color) throws IOException {
         ProductColorDTO productColorDTO = new ProductColorDTO(product_product_code, color);
         Product_Color product_color = new Product_Color(productColorDTO);

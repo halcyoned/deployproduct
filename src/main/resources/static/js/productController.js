@@ -67,7 +67,7 @@ class ProductsController {
         for (var i=0; i<colorArray.length; i++) {
             console.log(colorArray[i]);
             const formColorData = new FormData();
-            formColorData.append('Product_Product_code', product_code);
+            formColorData.append('product_Product_code', product_code);
             formColorData.append('color', colorArray[i]);
 
             fetch('https://deployproductl3c.herokuapp.com/product_color/add', {
