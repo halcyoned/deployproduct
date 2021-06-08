@@ -74,7 +74,7 @@ class ProductsController {
                 method: 'POST',
                 body: formColorData
             })
-            .then(resp => resp.json)
+            .then(resp => resp.json())
             .then(data => {
                 console.log("Success adding color", data);
             })
