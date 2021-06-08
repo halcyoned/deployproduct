@@ -144,7 +144,7 @@ class ProductsController {
                         oId: product.product_code,
                         oName: product.name,
                         oDescription: product.description,
-                        oImage_url: product.imageUrl,
+                        oImage_url: product.image_url,
                         oCategory: product.category,
                         oPrice: product.price,
                         oColorArray: colorArray
