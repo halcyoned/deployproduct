@@ -53,6 +53,8 @@ class ProductsController {
             colorArray: colorArray
         };
 
+        console.log(colorArray)
+
         const formData = new FormData();
         formData.append('product_code', product_code);
         formData.append('name', name);
@@ -63,6 +65,7 @@ class ProductsController {
         formData.append('imagefile', imagePath);
 
         for (var i=0; i<colorArray.length; i++) {
+            console.log(colorArray[i]);
             const formColorData = new FormData();
             formColorData.append('Product_Product_code', product_code);
             formColorData.append('color', colorArray[i]);
