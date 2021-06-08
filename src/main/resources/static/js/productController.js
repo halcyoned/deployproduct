@@ -2,7 +2,9 @@
 
 const createHTMLList = (index, code, name, price, description, imageurl, category) =>
     `<div class="card mb-5" style="width:18rem">
-        <img src="${imageurl}" class="card-img-top" alt="...">
+        <div class="d-flex align-items-center" style="height:300px;">
+            <img src="${imageurl}" class="card-img-top" alt="...">
+        </div>
         <div class="card-body text-center">
             <h5 class="card-title">${name}</h5>
             <p class="card-text"></p>
@@ -109,8 +111,8 @@ class ProductsController {
         //var colorArray = [];
         //console.log(colorArray);
 
-        fetch('http://localhost:8080/product/all')
-        //fetch('https://deployproductl3c.herokuapp.com/product/all')
+//        fetch('http://localhost:8080/product/all')
+        fetch('https://deployproductl3c.herokuapp.com/product/all')
             .then((resp) => resp.json())
             .then(function (data) {
                 console.log("1. receive product data");
@@ -119,8 +121,8 @@ class ProductsController {
                 data.forEach(function (product, index1) {
                     var colorArray = [];
 
-                    fetch('http://localhost:8080/product_color/all')
-                    //fetch('https://deployproductl3c.herokuapp.com/product_color/all')
+//                    fetch('http://localhost:8080/product_color/all')
+                    fetch('https://deployproductl3c.herokuapp.com/product_color/all')
                     .then((resp) => resp.json())
                     .then(function (dataColor) {
                         dataColor.forEach(function (product_color, index2) {
