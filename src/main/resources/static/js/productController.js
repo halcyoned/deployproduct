@@ -2,7 +2,7 @@
 
 const createHTMLList = (index, code, name, price, description, imageurl, category) =>
     `<div class="card mb-5" style="width:18rem">
-        <div class="d-flex align-items-center" style="height:300px;">
+        <div class="d-flex align-items-center" style="height:360px;">
             <img src="${imageurl}" class="card-img-top" alt="...">
         </div>
         <div class="card-body text-center">
