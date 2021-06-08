@@ -39,7 +39,7 @@ class ProductsController {
     }
 
     //method to add the items into the array
-    addItem(product_code, name, price, description, image_url, category, imagePath) {
+    addItem(product_code, name, price, description, image_url, category, imagePath, colorArray) {
 
         var productController = this;
 
@@ -49,7 +49,8 @@ class ProductsController {
             price: price,
             description: description,
             image_url: image_url,
-            category: category
+            category: category,
+            colorArray: colorArray
         };
 
         const formData = new FormData();
@@ -60,6 +61,25 @@ class ProductsController {
         formData.append('image_url', image_url);
         formData.append('category', category);
         formData.append('imagefile', imagePath);
+
+        for (var i=0; i<colorArray.length; i++) {
+            const formColorData = new FormData();
+            formColorData.append('Product_Product_code', product_code);
+            formColorData.append('color', colorArray[i]);
+
+            fetch('https://deployproductl3c.herokuapp.com/product_color/add', {
+                method: 'POST',
+                body: formColorData
+            })
+            .then(resp => resp.json)
+            .then(data => {
+                console.log("Success adding color", data);
+            })
+            .catch((error) => {
+                console.error("Error", error);
+                alert("Error adding item to product")
+            });
+        }
 
         fetch('https://deployproductl3c.herokuapp.com/product/add', {
             method: 'POST',

@@ -148,7 +148,7 @@ function submitForm() {
         addToList(itemCode, itemName, itemCategory, colorArray, itemPrice, itemDescript);
 
         //Add the task to the task manager
-        productControl.addItem(itemCode, itemName, itemPrice, itemDescript, imageUrl, itemCategory, storeImage);
+        productControl.addItem(itemCode, itemName, itemPrice, itemDescript, imageUrl, itemCategory, storeImage, colorArray);
 
         resetForm();
         $("#formModal").modal("show");
