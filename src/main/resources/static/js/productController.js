@@ -48,7 +48,7 @@ class ProductsController {
             name: name,
             price: price,
             description: description,
-            image_url: image_url,
+            imageUrl: image_url,
             category: category,
             colorArray: colorArray
         };
@@ -144,7 +144,7 @@ class ProductsController {
                         oId: product.product_code,
                         oName: product.name,
                         oDescription: product.description,
-                        oImage_url: product.image_url,
+                        oImage_url: product.imageUrl,
                         oCategory: product.category,
                         oPrice: product.price,
                         oColorArray: colorArray
