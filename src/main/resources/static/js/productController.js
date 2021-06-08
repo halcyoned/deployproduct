@@ -64,26 +64,7 @@ class ProductsController {
         formData.append('category', category);
         formData.append('imagefile', imagePath);
 
-        for (var i=0; i<colorArray.length; i++) {
-            console.log(colorArray[i]);
-            const formColorData = new FormData();
-            formColorData.append('product_Product_code', product_code);
-            formColorData.append('color', colorArray[i]);
-
-            fetch('https://deployproductl3c.herokuapp.com/product_color/add', {
-                method: 'POST',
-                body: formColorData
-            })
-            .then(resp => resp.json())
-            .then(data => {
-                console.log("Success adding color", data);
-            })
-            .catch((error) => {
-                console.error("Error", error);
-                alert("Error adding item to product")
-            });
-        }
-
+//        fetch('http://localhost:8080/product/add', {
         fetch('https://deployproductl3c.herokuapp.com/product/add', {
             method: 'POST',
             body: formData
@@ -91,6 +72,26 @@ class ProductsController {
             .then(response => response.json())
             .then(data => {
                 console.log("Success", data);
+                    for (var i=0; i<colorArray.length; i++) {
+                        console.log(colorArray[i]);
+                        const formColorData = new FormData();
+                        formColorData.append('product_Product_code', product_code);
+                        formColorData.append('color', colorArray[i]);
+
+//                        fetch('http://localhost:8080/product_color/add', {
+                        fetch('https://deployproductl3c.herokuapp.com/product_color/add', {
+                            method: 'POST',
+                            body: formColorData
+                        })
+                        .then(resp => resp.json())
+                        .then(data => {
+                            console.log("Success adding color", data);
+                        })
+                        .catch((error) => {
+                            console.error("Error", error);
+                            alert("Error adding item to product")
+                        });
+                    }
             })
             .catch((error) => {
                 console.error("Error", error);
@@ -108,6 +109,7 @@ class ProductsController {
         //var colorArray = [];
         //console.log(colorArray);
 
+//        fetch('http://localhost:8080/product/all')
         fetch('https://deployproductl3c.herokuapp.com/product/all')
             .then((resp) => resp.json())
             .then(function (data) {
@@ -117,6 +119,7 @@ class ProductsController {
                 data.forEach(function (product, index1) {
                     var colorArray = [];
 
+//                    fetch('http://localhost:8080/product_color/all')
                     fetch('https://deployproductl3c.herokuapp.com/product_color/all')
                     .then((resp) => resp.json())
                     .then(function (dataColor) {
