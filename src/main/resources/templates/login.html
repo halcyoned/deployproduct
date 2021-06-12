@@ -37,6 +37,30 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
+
+                    <div th:if="${param.error}">
+                        Invalid username and password.
+                    </div>
+                    <div th:if="${param.logout}">
+                        You have been logged out.
+                    </div>
+
+                    <form th:action="@{/login}" method="post">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" aria-describedby="NameHelp" required>
+                            <small id="NameHelp" class="form-text text-muted">We'll never share your username with anyone else.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+
+
+                    </form>
+
+                    <!--
                     <form action="products.html" method="GET">
                         <div>
                             <label for="email">Your email address*</label>
@@ -63,8 +87,11 @@
                         <br>
                         <br>
                         <br>
-                    </form>
+                    </form> -->
                 </div>
+
+
+                
                 <div class="col-md-6 m5">
                     <div>
                         <h6>New member?</h6>
