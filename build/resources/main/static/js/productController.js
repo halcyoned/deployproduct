@@ -2,7 +2,9 @@
 
 const createHTMLList = (index, code, name, price, description, imageurl, category) =>
     `<div class="card mb-5" style="width:18rem">
-        <img src="${imageurl}" class="card-img-top" alt="...">
+        <div class="d-flex align-items-center" style="height:360px;">
+            <img src="${imageurl}" class="card-img-top" alt="...">
+        </div>
         <div class="card-body text-center">
             <h5 class="card-title">${name}</h5>
             <p class="card-text"></p>
@@ -186,7 +188,7 @@ class ProductsController {
             }
         }
         //add empty child div to ensure cards aligns to left side, all cards have width:18rem
-        for (i = 0; i < 3 - (this._items.length % 3); i++) {
+        for (i = 0; i <= 3 - (this._items.length % 3); i++) {
             productHTMLList.push('<div style="width:18rem">\n</div>');
         }
 
@@ -206,7 +208,7 @@ class ProductsController {
             }
         }
         //add empty child div to ensure cards aligns to left side, all cards have width:18rem
-        for (i = 0; i < 3 - (this._items.length % 3); i++) {
+        for (i = 0; i <= 3 - (this._items.length % 3); i++) {
             productHTMLList.push('<div style="width:18rem">\n</div>');
         }
 
@@ -226,7 +228,7 @@ class ProductsController {
             }
         }
         //add empty child div to ensure cards aligns to left side, all cards have width:18rem
-        for (i = 0; i < 3 - (this._items.length % 3); i++) {
+        for (i = 0; i <= 3 - (this._items.length % 3); i++) {
             productHTMLList.push('<div style="width:18rem">\n</div>');
         }
 

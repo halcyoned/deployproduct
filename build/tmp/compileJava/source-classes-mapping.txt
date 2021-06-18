@@ -26,5 +26,7 @@ org/generation/deployproduct/repository/Entity/Product.java
  org.generation.deployproduct.repository.Entity.Product
 org/generation/deployproduct/controller/ProductController.java
  org.generation.deployproduct.controller.ProductController
+org/generation/deployproduct/security/WebSecurityConfig.java
+ org.generation.deployproduct.security.WebSecurityConfig
 org/generation/deployproduct/controller/DTO/ProductDTO.java
  org.generation.deployproduct.controller.DTO.ProductDTO

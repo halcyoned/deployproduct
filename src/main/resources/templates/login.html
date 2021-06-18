@@ -16,6 +16,11 @@
         rel="stylesheet">
     <!--local CSS-->
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        section {
+            background-color: rgb(240, 240, 240);
+        }
+    </style>
 </head>
 
 <body>
@@ -23,23 +28,20 @@
     <div th:insert="fragments/navbar.html :: navbar"></div>
 
     <!--This is the login form. Reference to lazada.com login form-->
-    <!--Top section of login page-->
-    <br>
-    <div class="container">
+    <section class="container mb-4 pb-5 border border-light rounded-lg" id="loginContainer">
+        <!--Top section of login page-->
         <div class="container">
-            <h4>Welcome to LLLC.</h4>
-            <br>
-            <p>Looks like you are ready for a great deal from us.</p>
-            <p>Please sign in.</p>
+            <h3 class="pt-5 mb-4 text-center font-weight-normal">Administrator Sign In</h3>
+            <p class="text-center">Please sign in to add more products</p>
         </div>
         <br>
         <!--Bottom section of login page-->
         <div class="container">
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="col-md-6">
 
                     <div th:if="${param.error}">
-                        Invalid username and password.
+                        Invalid username and/or password.
                     </div>
                     <div th:if="${param.logout}">
                         You have been logged out.
@@ -48,87 +50,29 @@
                     <form th:action="@{/login}" method="post">
                         <div class="form-group">
                             <label for="username">Username</label>
-                            <input type="text" class="form-control" id="username" name="username" aria-describedby="NameHelp" required>
-                            <small id="NameHelp" class="form-text text-muted">We'll never share your username with anyone else.</small>
+                            <input class="form-control" id="username" name="username" type="text" required>
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
                             <input type="password" class="form-control" id="password" name="password" required>
                         </div>
+                        <br>
                         <button type="submit" class="btn btn-primary">Submit</button>
-
-
                     </form>
-
-                    <!--
-                    <form action="products.html" method="GET">
-                        <div>
-                            <label for="email">Your email address*</label>
-                        </div>
-                        <div>
-                            <input id="email" name="email" type="email" required>
-                        </div>
-                        <br>
-
-                        <div>
-                            <label for="password">Password*</label>
-                        </div>
-                        <div>
-                            <input id="password" name="password" type="password" min="8"
-                                aried-describedby="passwordHelpBlock" required data-bs-toggle="tooltip"
-                                data-bs-placement="bottom" title="at least 8 characters, no spaces">
-                        </div>
-                        <div id="passwordHelpBlock" class="form-text">
-                            A strong password secures your account.
-                        </div>
-                        <br>
-
-                        <input type="submit" button type="button" class="btn btn-primary btn-lg"></button>
-                        <br>
-                        <br>
-                        <br>
-                    </form> -->
                 </div>
-
-
-                
-                <div class="col-md-6 m5">
-                    <div>
-                        <h6>New member?</h6>
-                        <a href="#">Register here.</a> <!-- to link to registration form-->
-                    </div>
-                    <br>
-                    <div>
-                        <button type="button" class="btn btn-outline-primary">Login with FaceBook</button>
-                    </div>
-                </div>
-                <br>
-
-
-
-                <!-- The JS SDK Login Button (cut-and-paste)-->
-                <!--<div class="fb-login-button" data-width="" data-size="medium" data-button-type="login_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="true">
-                </div>-->
-                <!-- or-->
-                <!--<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-                </fb:login-button>
-
-                <div id="status">
-                </div> -->
             </div>
-
         </div>
-    </div>
+    </section>
 
     <div th:insert="fragments/footer.html :: footer"></div>
 
 
     <script src=" https://code.jquery.com/jquery-3.5.1.slim.min.js"
-            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script>
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+        </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
-    </script>
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
+        </script>
 </body>
 
 </html>

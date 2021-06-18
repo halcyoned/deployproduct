@@ -66,8 +66,8 @@ class ProductsController {
         formData.append('category', category);
         formData.append('imagefile', imagePath);
 
-//        fetch('http://localhost:8080/product/add', {
-        fetch('https://deployproductl3c.herokuapp.com/product/add', {
+        fetch('http://localhost:8080/product/add', {
+//        fetch('https://deployproductl3c.herokuapp.com/product/add', {
             method: 'POST',
             body: formData
         })
@@ -80,8 +80,8 @@ class ProductsController {
                         formColorData.append('product_Product_code', product_code);
                         formColorData.append('color', colorArray[i]);
 
-//                        fetch('http://localhost:8080/product_color/add', {
-                        fetch('https://deployproductl3c.herokuapp.com/product_color/add', {
+                        fetch('http://localhost:8080/product_color/add', {
+//                        fetch('https://deployproductl3c.herokuapp.com/product_color/add', {
                             method: 'POST',
                             body: formColorData
                         })
@@ -111,8 +111,8 @@ class ProductsController {
         //var colorArray = [];
         //console.log(colorArray);
 
-//        fetch('http://localhost:8080/product/all')
-        fetch('https://deployproductl3c.herokuapp.com/product/all')
+        fetch('http://localhost:8080/product/all')
+//        fetch('https://deployproductl3c.herokuapp.com/product/all')
             .then((resp) => resp.json())
             .then(function (data) {
                 console.log("1. receive product data");
@@ -121,8 +121,8 @@ class ProductsController {
                 data.forEach(function (product, index1) {
                     var colorArray = [];
 
-//                    fetch('http://localhost:8080/product_color/all')
-                    fetch('https://deployproductl3c.herokuapp.com/product_color/all')
+                    fetch('http://localhost:8080/product_color/all')
+//                    fetch('https://deployproductl3c.herokuapp.com/product_color/all')
                     .then((resp) => resp.json())
                     .then(function (dataColor) {
                         dataColor.forEach(function (product_color, index2) {
