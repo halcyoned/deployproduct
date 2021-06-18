@@ -124,8 +124,8 @@ function submitForm() {
         document.querySelector("#itemCodeErrorMsg").innerHTML = "Item code should not be more than 8 characters";
     } else if (itemCode.indexOf(" ") > -1) {
         document.querySelector("#itemCodeErrorMsg").innerHTML = "Item code should not contain spaces";
-    } else if (/[^a-zA-Z0-9\-\/]/.test(itemCode)) {
-        document.querySelector("#itemCodeErrorMsg").innerHTML = "Item code should not contain special characters";
+    } else if (/[^0-9\-\/]/.test(itemCode)) {
+        document.querySelector("#itemCodeErrorMsg").innerHTML = "Item code should not contain alphabets or special characters";
     } else {
         foundCode = true;
     }
