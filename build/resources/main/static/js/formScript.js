@@ -125,7 +125,7 @@ function submitForm() {
     } else if (itemCode.indexOf(" ") > -1) {
         document.querySelector("#itemCodeErrorMsg").innerHTML = "Item code should not contain spaces";
     } else if (/[^0-9\-\/]/.test(itemCode)) {
-        document.querySelector("#itemCodeErrorMsg").innerHTML = "Item code should not contain special characters";
+        document.querySelector("#itemCodeErrorMsg").innerHTML = "Item code should not contain alphabets or special characters";
     } else {
         foundCode = true;
     }
